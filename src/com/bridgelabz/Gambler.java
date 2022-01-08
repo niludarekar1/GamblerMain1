@@ -13,15 +13,18 @@ public class Gambler {
     public static void main(String[] args) {
 
 
-        int winCount = 0;
-        int loseCount = 0;
-        int i = 1;
         int j=1;
         int totalWon=0;
         int totalLoss=0;
         int winMax=0;
         int winLoss=0;
-        while(j<=20) {
+        int luckDay=0;
+        int unluckDay=0;
+        while(j<=20)
+        {
+            int winCount = 0;
+            int loseCount=0;
+            int i =0;
             while (i <= DAILY_STAKE) {
                 int betResult = random.nextInt(2);
                 //System.out.println(betResult);
@@ -44,12 +47,26 @@ public class Gambler {
             }
             totalWon=totalWon+winCount;
             totalLoss=totalLoss+loseCount;
-            System.out.println("Day"+j+" Win Count "+winCount+" Lose Count "+loseCount);
+            int diff=winCount-loseCount;
+            if(diff>0)
+            System.out.println("Day "+j+" Win Count "+winCount+" Lose Count "+loseCount+ "Won By "+diff);
+            else
+                System.out.println("Day "+j+" Win Count "+winCount+" Lose Count "+loseCount+"Lost By "+(-diff));
             j++;
+            if(winCount>winMax) {
+                winMax = winCount;
+                luckDay=j;
+            }
+            if (loseCount>winLoss) {
+                winLoss = loseCount;
+                unluckDay=j;
+            }
 
         }
         System.out.println("Total Won "+totalWon);
         System.out.println("Total Loss "+totalLoss);
+        System.out.println("Luckesty Day "+luckDay+"  Won by Max "+winMax);
+        System.out.println("Unluckesty Day "+unluckDay+"  Lost by Max "+winLoss);
 
     }
 }
