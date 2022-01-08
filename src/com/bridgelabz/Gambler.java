@@ -19,6 +19,8 @@ public class Gambler {
         int j=1;
         int totalWon=0;
         int totalLoss=0;
+        int winMax=0;
+        int winLoss=0;
         while(j<=20) {
             while (i <= DAILY_STAKE) {
                 int betResult = random.nextInt(2);
@@ -38,15 +40,16 @@ public class Gambler {
 
                 i++;
 
-                //System.out.println("Lose Count "+loseCount);
+
             }
             totalWon=totalWon+winCount;
             totalLoss=totalLoss+loseCount;
-
-            j++;
             System.out.println("Day"+j+" Win Count "+winCount+" Lose Count "+loseCount);
+            j++;
+
         }
         System.out.println("Total Won "+totalWon);
         System.out.println("Total Loss "+totalLoss);
+
     }
 }
