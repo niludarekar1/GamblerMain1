@@ -55,16 +55,18 @@ public class Gambler {
             j++;
             if(winCount>winMax) {
                 winMax = winCount;
+                luckDay=j;
             }
             if (loseCount>winLoss) {
                 winLoss = loseCount;
+                unluckDay=j;
             }
 
         }
         System.out.println("Total Won "+totalWon);
         System.out.println("Total Loss "+totalLoss);
-        System.out.println(" Win Max  "+winMax);
-        System.out.println(" Win Loss "+winLoss);
+        System.out.println("Luckesty Day "+luckDay+"  Won by Max "+winMax);
+        System.out.println("Unluckesty Day "+unluckDay+"  Lost by Max "+winLoss);
 
     }
 }
